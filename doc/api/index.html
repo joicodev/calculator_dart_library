@@ -52,8 +52,70 @@
   <div id="dartdoc-main-content" class="main-content">
       
 <section class="desc markdown">
-  <p>A sample command-line application with an entrypoint in <code>bin/</code>, library code
-in <code>lib/</code>, and example unit test in <code>test/</code>.</p>
+  <h1 id="calculator-dart-library">Calculator Dart Library</h1>
+<p>The <code>calculator_dart_library</code> library is a Dart library that provides basic functions for performing mathematical operations, including addition, subtraction, multiplication, and division. It is made up of a root file called <code>calculator.dart</code> that exposes the classes and functions needed to interact with the library, as well as several implementation files that contain the logic to perform each type of operation.</p>
+<p>The root <code>calculator.dart</code> file imports the implementation files and exports the classes and functions needed to interact with the library. It also contains functions to prompt the user for the number of numbers to be operated and the values of those numbers, as well as an enumeration to represent the type of operation to be performed.</p>
+<p>The implementation files contain the logic to perform each type of mathematical operation, as well as an interface that defines the methods that should implement each of the operations.</p>
+<p>In summary, the <code>calculator</code> library provides basic functionality for performing mathematical operations in Dart and is made up of several files that work together to perform these operations.</p>
+<h2 id="folder-structure">Folder Structure</h2>
+<pre class="language-dart"><code>├── bin/
+├── doc/
+├── lib/
+│   ├── calculator.dart
+│   ├── src/
+│   │   ├── calculator_operations.dart
+│   │   ├── operations/
+│   │   │   ├── addition_operation.dart
+│   │   │   ├── division_operation.dart
+│   │   │   ├── multiplication_operation.dart
+│   │   │   ├── operation_interface.dart
+│   │   │   └── subtraction_operation.dart
+│   │   └── utils/
+│   │       ├── menu.dart
+│   │       └── operation_type_enum.dart
+└── README.md
+
+</code></pre>
+<h2 id="usage-and-installation">Usage and Installation</h2>
+<p>To install the library, you can add the following package to your <code>pubspec.yaml</code> file:</p>
+<pre class="language-dart"><code>dependencies:
+  calculator_library:
+    git: https://github.com/joicodev/calculator_dart_library.git
+</code></pre>
+<p>Then, in the terminal, you can run flutter pub get to download the dependencies.</p>
+<h2 id="local-installation">Local installation</h2>
+<p>Clone the repository to your local machine:</p>
+<pre class="language-dart"><code>git clone https://github.com/joicodev/calculator_dart_library.git
+</code></pre>
+<p>Open the terminal and navigate to the project folder:</p>
+<pre class="language-dart"><code>cd calculator_library
+</code></pre>
+<p>Run the following command to install the dependencies:</p>
+<pre class="language-dart"><code>dart pub get
+</code></pre>
+<p>To use the library, import the calculator.dart file into your project and use the functions and classes found within it.</p>
+<pre class="language-dart"><code class="language-dart">import 'package:calculator_library/calculator.dart' as calc;
+
+void main(List&lt;String&gt; arguments) {
+  /// Start the calculator
+  calc.CalculatorOperations.init();
+
+  /// Start a division operation
+  List&lt;double&gt; values = calc.requestOperationValues();
+  final division = calc.DivisionOperation(values);
+  division.printResult();
+}
+</code></pre>
+<h2 id="execute-library-documentation">Execute library documentation</h2>
+<p>To run the library's documentation, you must first install DartDoc with the following command in Terminal:</p>
+<pre class="language-dart"><code class="language-dart">pub global activate dartdoc
+</code></pre>
+<h2 id="viewing-docs">Viewing docs</h2>
+<p>You can view the generated docs directly from the file system, but if you want to use the search function, you must load them with an HTTP server.</p>
+<p>An easy way to run an HTTP server locally is to use the dhttpd package. For example:</p>
+<pre class="language-dart"><code>dart pub global activate dhttpd
+dhttpd --path doc/api
+</code></pre>
 </section>
 
 

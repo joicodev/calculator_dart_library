@@ -41,7 +41,7 @@ dependencies:
 
 Then, in the terminal, you can run flutter pub get to download the dependencies.
 
-**Local installation**
+## Local installation
 Clone the repository to your local machine:
 
 ``` 
